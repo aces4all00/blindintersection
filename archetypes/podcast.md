@@ -1,8 +1,11 @@
 ---
 title: "{{ replace .TranslationBaseName "-" " " | humanize }}"
-description:
 date: {{ .Date }}
-lastmod: {{ .Date }}
+description:
+podcast:
+    mp3:
+    duration:
+
 draft: true
 
 ---

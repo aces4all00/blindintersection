@@ -1,7 +1,59 @@
-baseurl: "https://example.org/"
+baseurl: "https://blindintersection.org/"
 title: "Blind Intersection"
 theme: "zen"
 languageCode: "en-US"       # Set your language code (only needed for none multilingual sites).
+defaultContentLanguage: "en"
+pluralizelisttitles: false
+removePathAccents: true
+paginate: 10
+paginatePath: "page"
+rssLimit: 20
+author:
+  name: "Aces4All00, The Blind SysAdmin"
+  url: "https://example.org/somepage"
+
+outputFormats:
+  SearchIndex:
+    mediaType: "application/json"
+    baseName: "searchindex"
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home: ["HTML","RSS", "JSON", "SearchIndex"]
+  section: ["HTML","RSS", "JSON"]
+
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+
+menus:
+  main:
+  - name: Home
+    pageRef: /
+    weight: 10
+  - name: Articles
+    pageRef: /articles
+    weight: 20
+  - name: Blog
+    pageRef: /blog
+    weight: 30
+  - name: About
+    pageRef: /about
+    weight: 40
+  - name: Site
+    pageRef: /about/site
+    parent: About
+    weight: 41
+  - name: Blindness
+    pageRef: /about/blindness
+    parent: About
+    weight: 43
+  - name: Me
+    pageRef: /about/me
+    parent: About
+    weight: 43
 
 params:
   alpine: false             # Add AlpineJS, default false.
@@ -9,34 +61,35 @@ params:
     - blog                  # will be `@type: BlogPosting`.
     - post                  # Defaults to a list including only 'post' and 'blog'.
   breadcrumbSections:       # Sections in which pages will have a `BreadcrumbListing`
-    - section2              # in the <schema.org> `JSON+LD` in the page's `<head>`.
-    - section3              # This theme requires Hugo `v0.109.0` or higher to
+    - articles              # in the <schema.org> `JSON+LD` in the page's `<head>`.
+    - blog                  # This theme requires Hugo `v0.109.0` or higher to
                             # generate the `BreadcrumbListing`.
-  cookieConsent: true       # Show cookie consent form, default false.
+  cookieConsent: false       # Show cookie consent form, default false.
   contact: "info@example.org"
   copyright: "This site is licensed under a 
               [Creative Commons Attribution-ShareAlike 4.0 International
               License](https://creativecommons.org/licenses/by-sa/4.0/)."
   dateformat: ""            # Set the date format, default to "2 January, 2006"
-  description: ""           # Set site description, used in meta tags and JSON-LD
+  description: "Home of the personal portfolio and blog of Aces4All00, The Blind SysAdmin."           # Set site description, used in meta tags and JSON-LD
   favicon: ""               # Relative path to favicon in json feed, no leading slash.
   feedlinks: true           # Show feed links in the footer.
-  footer: "A [example.org](https://example.org/) production."
+  footer: "A [BlindIntersection.com](https://blindintersection.com/) production."
   icon: ""                  # Relative path to icon in json feed and JSON-LD, no leading slash.
   image: ""                 # Relative path to site image in JSON-LD, no leading slash.
   imageMaxWidth: ""         # Max width for images added via figure shortcode.
   internalPagination: false # Use Hugos internal pagination template, default false.
   jquery: false             # Add jQuery, default false.
-  languageDir: ""           # Set ltr or rtl, defaults to ltr.
-  logo: true                # Turn off the logo, defaults to true.
+  languageDir: "ltr"           # Set ltr or rtl, defaults to ltr.
+  logo: false                # Turn off the logo, defaults to true.
   logoPath:                 # Relative path to site logo, defaults to "images/logo.png", no leading slash.
   logoHeight:               # Set logo height, defaults to none.
   logoWidth:                # Set logo width, defaults to none.
   mainSections:             # The sections you want to have listed on the front page.
-    - "section1"            # Default to the section with most content if not set.
-    - "section2"            # Set to empty if no section should be listed.
-  math: true                # Turn on math typesetting with KaTeX, default false.
-  menuInHeader: true        # Move the main menu to the header, default false.
+    - "articles"            # Default to the section with most content if not set.
+    - "blog"                # Set to empty if no section should be listed.
+    - "micro"
+  math: false                # Turn on math typesetting with KaTeX, default false.
+  menuInHeader: false        # Move the main menu to the header, default false.
   microUsername: ""         # Your micro.blog username.
   mobileMenu: true          # Turn on a mobile menu on small screens, default false.
   mobileMenuOutline: true   # Mobil menu button as outline, default false.
@@ -46,12 +99,12 @@ params:
   plausibleTrackerURL: ""   # Plausible url, schemaless and no slash on end. Optional, defaults to "plausible.io/…"
   poweredby: true           # Show powered by hugo in footer
   privacyPolicyUrl: ""      # If set will add link to cookie consent form.
-  realfavicongenerator:     # If full set of favicons, site manifest etc. exists, default false.
+  realfavicongenerator: false     # If full set of favicons, site manifest etc. exists, default false.
   relatedposts: true        # Show related posts under a "See also" section, default false.
-  sassTranspiler: "dartsass"# The Sass transpiler to use, default "libsass".
+  sassTranspiler: "libsass" # The Sass transpiler to use, default "libsass".
   searchLimit: 20           # Max number of search hits, default 20.
   sidebar: true             # Show a sidebar to the right, default false.
-  siteName: false           # Hide the site name (visually-hidden), default true.
+  siteName: true           # Hide the site name (visually-hidden), default true.
   submitted: true           # Show author and date information for a post.
   themeColor:               # Hex color value, used in meta tags, default "#ffffff".
   umbrella: true            # Add Umbrella JS, default false.
